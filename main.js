@@ -22,12 +22,13 @@ App.init = function () {
 
   }
   var selectLocation = function (locationId) {
-    var data = JSON.stringify({ location_id: locationId, id: 1 });
+    var data = JSON.stringify({ "location_id": locationId, "id": 1 });
     $.ajax({
-       url: 'https://location-winnow.herokuapp.com/users/1',
+       url: "https://location-winnow.herokuapp.com/users/1",
        type: 'PUT',
+       contentType: "application/json; charset=utf-8",
+       dataType: "json",
        data: data,
-       dataType: 'application/json',
        success: function(response) {
          console.log('response', response);
        }
@@ -44,7 +45,6 @@ App.init = function () {
 
   $('#search-field').on('keyup', function (event) {
       var target = event.target.value;
-      // search trie for target
       retrieveLocations(target);
   })
 
