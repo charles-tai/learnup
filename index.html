@@ -1,0 +1,45 @@
+<head>
+  <title>LearnUP</title>
+</head>
+
+<body>
+    <script src="assets/jquery-1.12.1.min.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+    <script src="assets/handlebars.js"></script>
+    <script src="assets/handlebars_template.js"></script>
+    <script src="main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        App.init();
+      });
+    </script>
+    <script id="location-template" type="text/x-handlebars-template">
+      <div class="col-md-4">
+        <div>
+          Starbucks
+          {{street}}
+          {{city}} {{state}} {{postal_code}}
+        </div>
+        <button
+          class="select-location"
+          data-location-id="{{id}}">
+            Select
+        </button>
+      </div>
+    </script>
+    <script id="locations-template" type="text/x-handlebars-template">
+      <div class="container">
+        <div class="content-wrap">
+            {{#each locations }}
+              {{> location}}
+            {{/each}}
+        </div>
+      </div>
+    </script>
+    <div id="container">
+      <div>
+        <input id="search-field"></input>
+      </div>
+      <div id="locations"></div>
+    </div>
+</body>
